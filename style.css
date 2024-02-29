@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color: #1A2037;
+    --text-color: #e4e2e2;
+    --bg-color: #283151;
+}
+body{
+    backdrop-filter: blur(10px);/*difumina el fondo*/
+    display: flex;
+    height: 100vh;
+    font-family: "Poppins",sans-serif;
+    align-items: center;
+    /* justify-content: center; *//*centrado*/
+    background-image: url("https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size:cover ;
+    background-repeat: no-repeat;
+}
+.nav{
+    padding: 2rem 1.5rem;
+    height: 90vh;
+    border-radius: 0 1rem 1rem 0; /*Izquierda*/
+    /* border-radius: 1rem; *//*centrado*/
+    width: max-content;
+    background-color: var(--primary-color);
+    --grid-columnas_nav:max-content 0fr;
+}
+.nav_list{
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.nav:has(:hover), .nav:hover{
+    --grid-columnas_nav:max-content 1fr
+}
+.nav_item{
+    color: var(--text-color);
+    display: grid;
+    grid-template-columns: var(--grid-columnas_nav);
+    transition: grid-template-columns .3s;
+    align-items: center;
+   
+    border-radius: 5px;
+}
+.nav_item_down{
+    margin-top: auto;
+}
+.nav_item_user{
+    position:relative;
+    margin-top: 10px;
+
+}
+.nav_figure{
+    padding: 1rem;
+}
+.nav_item_user::after{
+    content: "";
+    position:absolute;
+    height: 1px;
+    width: 100%;
+    top: -5px;
+    background-color: var(--text-color);
+}
+
+.nav_item:hover{
+    cursor: pointer;
+     grid-template-columns: max-content 1fr ; /*Magia*/
+    background-color: var(--bg-color);
+}
+
+.nav_show{
+    overflow: hidden; /*Ya no se muestra 0fr del article*/
+ /*    white-space: nowrap; */
+}
+
+.nav_name_user{
+   white-space: nowrap; /*salto de linea no disponible*/
+   padding-right: 1.rem;
+}
+.nav_img{
+    width: 35px;
+}
+.nav_img_avatar{
+    border-radius: 50%;
+    aspect-ratio: 1/1;/*siempre queda cuadrado*/
+    object-fit: cover;/*no pierde la resolucion*/
+}
